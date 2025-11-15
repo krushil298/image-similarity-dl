@@ -1,0 +1,40 @@
+# Claude Code Rules for Image Similarity Comparison Project
+
+## Project Standards
+
+### Code Quality
+- Write clean, readable, and well-documented code
+- Follow PEP 8 style guidelines for Python
+- Use meaningful variable and function names
+- Add docstrings to all functions and classes
+
+### Git Practices
+- Commit after each significant feature or step
+- Write short, clear commit messages (imperative mood)
+- NO co-author tags in commits
+- Push only necessary project files (use .gitignore)
+- Never commit sensitive data, API keys, or large binary files
+
+### File Organization
+- Keep backend and frontend code separated
+- Use virtual environment for Python dependencies
+- Organize static files (CSS, JS) properly
+- Store uploaded images in a dedicated directory (excluded from git)
+
+### Security
+- Validate all file uploads (type, size)
+- Sanitize user inputs
+- Use secure file naming conventions
+- Implement proper error handling
+
+### Deep Learning Best Practices
+- Use pre-trained models for efficiency
+- Document model selection rationale
+- Include model performance metrics
+- Optimize for inference speed
+
+### Documentation
+- Maintain clear README with setup instructions
+- Document API endpoints
+- Include example usage
+- Provide troubleshooting guide
