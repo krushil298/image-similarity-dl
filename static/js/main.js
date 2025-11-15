@@ -161,20 +161,14 @@ function displayResults(data) {
 
     // Update similarity level badge
     const levelBadge = document.getElementById('similarityLevel');
-    levelBadge.textContent = level + ' Similarity';
-    levelBadge.className = 'badge fs-5 ' + getSimilarityBadgeClass(score);
+    levelBadge.textContent = level;
+    levelBadge.className = 'similarity-badge ' + getSimilarityBadgeClass(score);
 
-    // Update progress bar
-    const progressBar = document.getElementById('similarityBar');
-    progressBar.style.width = score + '%';
-    progressBar.setAttribute('aria-valuenow', score);
-    progressBar.innerHTML = `<span class="fw-bold">${score.toFixed(1)}%</span>`;
-    progressBar.className = 'progress-bar progress-bar-striped progress-bar-animated ' +
-                            getProgressBarClass(score);
-
-    // Update score circle color
+    // Update circular progress ring
     const scoreCircle = document.getElementById('scoreCircle');
-    scoreCircle.style.background = getScoreGradient(score);
+    const circumference = 2 * Math.PI * 85; // radius = 85
+    const offset = circumference - (score / 100) * circumference;
+    scoreCircle.style.strokeDashoffset = offset;
 
     // Update description
     document.getElementById('similarityDescription').textContent =
@@ -185,42 +179,19 @@ function displayResults(data) {
     resultsSection.classList.add('fade-in');
 
     // Scroll to results
-    resultsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setTimeout(() => {
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
 }
 
 /**
  * Get badge class based on similarity score
  */
 function getSimilarityBadgeClass(score) {
-    if (score >= 80) return 'bg-success';
-    if (score >= 60) return 'bg-info';
-    if (score >= 40) return 'bg-warning';
-    return 'bg-danger';
-}
-
-/**
- * Get progress bar class based on similarity score
- */
-function getProgressBarClass(score) {
-    if (score >= 80) return 'bg-success';
-    if (score >= 60) return 'bg-info';
-    if (score >= 40) return 'bg-warning';
-    return 'bg-danger';
-}
-
-/**
- * Get gradient color for score circle
- */
-function getScoreGradient(score) {
-    if (score >= 80) {
-        return 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)';
-    } else if (score >= 60) {
-        return 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)';
-    } else if (score >= 40) {
-        return 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
-    } else {
-        return 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)';
-    }
+    if (score >= 80) return 'very-high';
+    if (score >= 60) return 'high';
+    if (score >= 40) return 'moderate';
+    return 'low';
 }
 
 /**
@@ -246,11 +217,11 @@ function getSimilarityDescription(score) {
 function setLoadingState(loading) {
     if (loading) {
         compareBtn.disabled = true;
-        compareBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
+        compareBtn.querySelector('.btn-compare-text').innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Processing...';
         loadingSpinner.style.display = 'block';
     } else {
         compareBtn.disabled = false;
-        compareBtn.innerHTML = '<i class="bi bi-arrows-angle-contract"></i> Compare Images';
+        compareBtn.querySelector('.btn-compare-text').innerHTML = '<i class="bi bi-lightning-charge-fill me-2"></i>Analyze Similarity';
         loadingSpinner.style.display = 'none';
     }
 }
