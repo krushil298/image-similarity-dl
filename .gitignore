@@ -49,3 +49,6 @@ models/*.pth
 
 # Environment variables
 .env
+
+# Claude rules (not needed for project)
+.clauderules
