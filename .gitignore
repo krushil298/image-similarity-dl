@@ -52,3 +52,9 @@ models/*.pth
 
 # Claude rules (not needed for project)
 .clauderules
+
+# Deployment files (local only)
+Procfile
+runtime.txt
+render.yaml
+DEPLOYMENT.md
