@@ -2,6 +2,14 @@
 
 A deep learning-powered web application that compares two images and computes their similarity score using pre-trained convolutional neural networks.
 
+## 🚀 Live Demo
+
+**Deploy this project for free:**
+- [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com)
+- [View Deployment Guide](DEPLOYMENT.md)
+
+**GitHub Repository:** [image-similarity-dl](https://github.com/krushil298/image-similarity-dl)
+
 ## Features
 
 - **Modern Glassmorphism UI** - Beautiful gradient background with animated floating elements
