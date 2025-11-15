@@ -4,11 +4,12 @@ A deep learning-powered web application that compares two images and computes th
 
 ## Features
 
-- Upload any two images (JPG, PNG, JPEG)
-- Compute similarity using deep learning (ResNet50)
-- Display similarity percentage with visual feedback
-- Interactive and user-friendly interface
-- Real-time processing
+- **Modern Glassmorphism UI** - Beautiful gradient background with animated floating elements
+- **Drag & Drop Upload** - Intuitive image upload with preview
+- **Deep Learning Analysis** - Powered by pre-trained ResNet50 model
+- **Circular Progress Visualization** - Animated score ring with gradient effects
+- **Real-time Results** - Instant similarity scoring with detailed explanations
+- **Fully Responsive** - Works seamlessly on desktop, tablet, and mobile devices
 
 ## Technologies Used
 
